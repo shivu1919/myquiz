@@ -3,66 +3,80 @@ import './App.css'
 
 function App() {
 
-  const ques=[
-    {
-      questiontext: "What is the capital of India?" ,
-      options:[
+    const question=[
+      "What is the capital of India?",
+      "Who is the PM of India?",
+      "Who is president of India?",
+      "What is the capital of Andhra Pradesh ?"
+    ]
+
+    const options=[
+      {
+        optionvalue:[
           "New Delhi",
           "Hyderabad",
           "Banglore",
           "Chennai"
-      ]
-    },
-    {
-      questiontext: "Who is the PM of India?" ,
-      options:[
+        ]
+      },
+      {
+        optionvalue:[
         "Revanth Reddy",
         "Narendra Modi",
         "Amit Shah",
         "Rahul Gandhi"
-      ]
-    },
-    {
-      questiontext: "Who is president of India?",
-      options:[
+        ]
+      },
+      {
+        optionvalue:[
         "Sonia Gandhi",
         "Narendra Modi",
         "Pawan kalyan",
         "Draupadi Murmu"
-      ]
-    },
-    {
-      questiontext: "What is the capital of Andhra Pradesh ?" ,
-      options:[
+        ]
+      },
+      {
+        optionvalue:[
         "Warangal",
         "Hyderabad",
         "Amrawati",
         "None of the Above"
-      ]
+        ]
+      }
+    ]
+
+
+    const[counter, setCounter] = useState(0)
+
+
+    function CheckAnswer(){
+      console.log("This function is working");
+      let v = document.getElementById('value').innerHTML
+
+      console.log()
     }
-  ]
 
-  const [count,setCount]= useState(0)
-
-  function Change(){
-    setCount(count+1)
-  }
+    function Change(){
+      CheckAnswer()
+      setCounter(counter+1)
+      
+    }
 
 
   return (
     <div className="container">
       <h1>My Quiz Application</h1>
         <div className="card">
-            <h2>Question No: {count+1} / 4</h2>
-            <h3>{ques[count].questiontext}</h3>
+            <h2>Question No: {counter+1} /4</h2>
 
+            <h2>{question[counter]}</h2>
+            
             <div id="option">
-              {ques[count].options.map(x => <li>{x}</li>)}
+              {options[counter].optionvalue.map((x,index)=> <li key={index} onClick={Change} id="value">{x}</li>)}
+
             </div>
-           
-              <br>
-              </br>
-            <button onClick={Change}>Change</button>
+            
+            <br />
         </div>
     </div>
   )
