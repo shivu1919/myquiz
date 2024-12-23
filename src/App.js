@@ -49,11 +49,10 @@ function App() {
     const[counter, setCounter] = useState(0)
 
 
-    function CheckAnswer(){
+    function CheckAnswer(index){
       console.log("This function is working");
-      let v = document.getElementById('value').innerHTML
-
-      console.log()
+      
+      console.log(index)
     }
 
     function Change(){
@@ -72,7 +71,7 @@ function App() {
             <h2>{question[counter]}</h2>
             
             <div id="option">
-              {options[counter].optionvalue.map((x,index)=> <li key={index} onClick={Change} id="value">{x}</li>)}
+              {options[counter].optionvalue.map((x,index)=> <li key={index} onClick={()=>{Change(index)}} id={index}>{x}</li>)}
 
             </div>
             
