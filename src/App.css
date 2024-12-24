@@ -35,3 +35,13 @@ li:hover{
   flex-direction: column;
   row-gap: 0.5rem;
 }
+
+.final{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#answer{
+  text-align: center;
+}
